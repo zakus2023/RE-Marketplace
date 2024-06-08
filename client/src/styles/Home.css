@@ -1,0 +1,47 @@
+.item-on-home {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+.testimonial-inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.item-on-home h2 {
+  position: relative;
+  margin-bottom: -20px;
+  margin-top: -30px;
+}
+
+.item-on-home h2::after {
+  content: "";
+  width: 50%;
+  height: 4px;
+  background: red;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+}
+
+.testimonial-inner h2 {
+  position: relative;
+}
+
+.testimonial-inner h2::after {
+  content: "";
+  width: 50%;
+  height: 4px;
+  background: red;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+}
+
+@media (max-width: 800px) {
+  .item-inner-home {
+    margin-bottom: 15px;
+  }
+}

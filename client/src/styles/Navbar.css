@@ -1,0 +1,143 @@
+body {
+  background: #efefef;
+  transition: background 0.5s;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--nav-color);
+  padding: 5px 5%;
+  box-shadow: 0, 0, 0, 0.1;
+}
+
+.logo {
+  width: 110px;
+  margin-right: 45px;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+.search-box {
+  background: #efefef;
+  width: 500px;
+  border-radius: 20px;
+  padding: 0 15px;
+  align-items: center;
+  display: flex;
+  gap: 5px;
+}
+
+.search-box .fa {
+  width: 18px;
+  color: grey;
+}
+
+.search-box input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.nav-right ul li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-right ul li::after {
+  content: "";
+  height: 2px;
+  width: 0%;
+  background: red;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  transition: 1s;
+}
+
+.nav-right ul li:hover::after {
+  width: 100%;
+}
+
+.nav-right ul li {
+  cursor: pointer;
+}
+.nav-right .active::after {
+  width: 100%;
+}
+
+.nav-right .user-profile {
+  margin-left: 30px;
+}
+
+.nav-right .user-profile img {
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 40px;
+}
+
+.nav-dropdown {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  nav {
+    padding: 15px 2px;
+    justify-content: center;
+    gap: 20px;
+  }
+  .nav-dropdown {
+    display: block;
+    width: 35px;
+    rotate: -1deg;
+    transition: 0.6s;
+  }
+  .nav-menu {
+    display: none;
+    height: 35px;
+    width: 100%;
+    position: absolute;
+    background-color: rgb(196, 186, 186);
+    justify-content: center;
+    top: 70px;
+    left: 0;
+    padding-top: 5px;
+    
+  }
+  .nav-menu-visible {
+    display: block;
+  }
+  .nav-dropdown.open {
+    transform: rotate(180deg);
+  }
+  .nav-left .logo {
+    width: 80px;
+    margin-right: 20px;
+  }
+  .nav-left .search-box {
+    width: 180px;
+  }
+  .nav-right ul li{
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .nav-right .user-profile img {
+    width: 30px;
+    height: 30px;
+  }
+}

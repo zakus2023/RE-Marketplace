@@ -1,0 +1,118 @@
+.footer{
+    background: grey;
+    margin-top: 30px;
+    color: #8a8a8a;
+    padding: 60px 0 20px;
+    padding-bottom: 20px;
+}
+
+
+.container{
+    max-width: 1300px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+.footer p{
+    color: white;
+}
+
+.footer h3{
+    color: white;
+    margin-bottom: 10px;
+    
+}
+.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4{
+    min-width: 240px;
+    margin-bottom: 20px;
+}
+.footer-col-1{
+    flex-basis: 30%;
+    text-align: center;
+}
+
+.footer-col-2{
+    flex: 1;
+    text-align: center;
+    color: white;
+
+}
+
+.footer-col-2 img{
+    width: 180px;
+    margin-bottom: 20px;
+}
+
+.footer-col-3, .footer-col-4{
+    flex-basis: 12%;
+    text-align: center;
+}
+
+.footer-col-3 ul{
+    list-style: none;
+    color: white;
+}
+
+.app-logo{
+    margin-right: 20px;
+}
+
+.app-logo img{
+    width: 140px;
+    margin-right: 4px;
+    cursor: pointer;
+}
+
+.footer hr{
+border: none;
+background: #b5b5b5;
+height: 1px;
+margin: 20px 0;
+}
+
+.footer-social-inner{
+    display: flex;
+    flex-direction: column;
+    
+}
+.footer-col-3 ul li{
+    cursor: pointer;
+    margin-bottom: 3px;
+}
+
+.social{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding-top: 36px;
+}
+.social img{
+    cursor: pointer;
+    width: 40px;
+}
+.copyright{
+    text-align: center;
+    color: white;
+    
+}
+
+@media (max-width: 800px){
+    .row{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .footer{
+        padding: 5px 5%;
+        width: 100%;
+    }
+}

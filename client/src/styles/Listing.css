@@ -1,0 +1,112 @@
+.mainlisting {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.inner-listing h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.inner-listing {
+  width: 60%;
+  background: white;
+  align-self: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.innermost-listing {
+    display: flex;
+    text-align: left;
+    gap: 10px;
+}
+
+.listingimages {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-basis: 20%;
+}
+.mainimage{
+width: 555px;
+height: 380px;
+}
+
+.mainimage img {
+  border: 1px solid #c9c9c9;
+  padding: 6px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.smallimages {
+  display: flex;
+  align-items: flex-start;
+}
+
+.smallimages img {
+  width: 90px;
+  border: 1px solid #c9c9c9;
+  padding: 5px;
+  margin-right: 3px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.listing-info span {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.listing-info .addr{
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.listing-info .type{
+    border: none;
+    background: green;
+    width: fit-content;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.description p{
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.facilities {
+    display: flex;
+    gap: 10px;
+}
+.facilities div{
+    font-weight: 600;
+}
+
+.listing-info button {
+    margin-top: 15px;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 15px;
+    background: green;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+}
