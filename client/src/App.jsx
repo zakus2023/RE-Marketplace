@@ -12,6 +12,7 @@ import SearchListing from "./pages/SearchListing";
 import Listing from "./pages/Listing";
 import About from "./pages/About";
 import ContactUs from "./pages/ContactUs";
+import PrivateRoutes from "./components/PrivateRoutes";
 
 export default function App() {
   return (
@@ -22,13 +23,15 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/profiles" element={<Profiles/>}/>
-          <Route path="/create-listing" element={<CreateListing/>}/>
-          <Route path="/listing" element={<Listing/>}/>
-          <Route path="/updatelisting" element={<UpdateListing/>}/>
-          <Route path="/searchlisting" element={<SearchListing/>}/>
-          <Route path="/about" element={<About/>}/>
-          <Route path="/contactus" element={<ContactUs/>}/>
+          <Route element={<PrivateRoutes/>}>
+            <Route path="/profiles" element={<Profiles />} />
+          </Route>
+          <Route path="/create-listing" element={<CreateListing />} />
+          <Route path="/listing" element={<Listing />} />
+          <Route path="/updatelisting" element={<UpdateListing />} />
+          <Route path="/searchlisting" element={<SearchListing />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contactus" element={<ContactUs />} />
         </Routes>
         <Footer />
       </BrowserRouter>

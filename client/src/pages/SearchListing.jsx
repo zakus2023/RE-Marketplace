@@ -17,7 +17,7 @@ export default function SearchListing() {
               />
             </div>
             <div className="search-term">
-              <span>Province:</span>
+              <span>Province/State:</span>
               <input
                 type="text"
                 placeholder="Province"
@@ -33,6 +33,15 @@ export default function SearchListing() {
                 id="postal-code"
                 name="postal-code"
               />
+            </div>
+            <div className="combo">
+              <span>Sort:</span>
+              <select name="" id="">
+                <option value="">Price high to low</option>
+                <option value="">Price low to high</option>
+                <option value="">Latest</option>
+                <option value="">Oldest</option>
+              </select>
             </div>
             <div className="checkboxes">
               <span>Type:</span>
@@ -56,22 +65,13 @@ export default function SearchListing() {
             <div className="amenities">
               <span>Amenities:</span>
               <div>
-              <input type="checkbox" id="parking" />
-              <span>Parking spot</span>
+                <input type="checkbox" id="parking" />
+                <span>Parking spot</span>
               </div>
               <div>
-              <input type="checkbox" id="furnished" />
-              <span>Furnished</span>
+                <input type="checkbox" id="furnished" />
+                <span>Furnished</span>
               </div>
-            </div>
-            <div className="combo">
-              <span>Sort:</span>
-              <select name="" id="">
-                <option value="">Price high to low</option>
-                <option value="">Price low to high</option>
-                <option value="">Latest</option>
-                <option value="">Oldest</option>
-              </select>
             </div>
           </form>
         </div>

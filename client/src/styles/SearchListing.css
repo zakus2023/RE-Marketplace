@@ -13,9 +13,10 @@
 
 .search-term {
   display: flex;
-  gap: 8px;
+  flex-direction: column;
+  gap: 10px;
   margin-bottom: 15px;
-  align-items: center;
+  width: 100%;
 }
 
 .search-term input {
@@ -34,7 +35,7 @@
 }
 
 .checkboxes input {
-    width: 20px;
+  width: 15px;
 }
 
 .checkboxes div {
@@ -55,23 +56,25 @@
 }
 
 .amenities input {
-    width: 20px;
+  width: 16px;
 }
 
 .combo {
   display: flex;
   gap: 10px;
   align-items: center;
+  margin-bottom: 15px;
 }
 
 .combo select {
   padding: 10px;
-  width: 150px;
+  width: 255px;
   border: 1px solid #c9c9c9;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   outline: none;
+  color: #827f7f;
 }
 
 .search-right {
