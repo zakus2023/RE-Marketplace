@@ -3,6 +3,7 @@ import "../styles/SignUp.css";
 import { Link } from "react-router-dom";
 import { set } from "mongoose";
 import { useNavigate } from "react-router-dom";
+import OAuth from "../components/OAuth";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
@@ -78,6 +79,7 @@ export default function SignUp() {
             />
           </div>
           <button>{loading? "Signing you up":"Sign up"}</button>
+          <OAuth/>
         </form>
         <p className="login">
           Already have an account?{" "}
