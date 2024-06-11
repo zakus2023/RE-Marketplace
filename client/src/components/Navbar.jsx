@@ -56,7 +56,7 @@ export default function Navbar() {
               )}
             </ul>
           </div>
-          <Link>
+          <Link to="/profiles">
             <div className="user-profile">
               {currentUser && <img src={currentUser.avatar} alt="" />}
             </div>

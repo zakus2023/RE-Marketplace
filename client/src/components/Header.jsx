@@ -17,7 +17,7 @@ export default function Header() {
         <p>homes</p>
         <p>for everyone</p>
         <Link to="/searchlisting" className="header-latest-btn">
-          <div>Latest Listings</div>
+          <div>Lets get started</div>
           <img src={hero_icon} alt="" />
         </Link>
       </div>
