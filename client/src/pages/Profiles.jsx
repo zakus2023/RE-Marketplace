@@ -11,6 +11,14 @@ import {
 import { app } from "../firebase";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import {
+  updateUserStart,
+  updateUserSuccess,
+  updateUserFailure,
+  deleteUserStart,
+  deleteUserSuccess,
+  deleteUserFailure,
+} from "../redux/user/userSlice";
 
 export default function Profiles() {
   const fileRef = useRef();
@@ -18,7 +26,57 @@ export default function Profiles() {
   const [formData, setFormData] = useState({});
   const [filePerc, setFilePerc] = useState(0);
   const [fileUploadError, setFileUploadError] = useState(false);
-  const { currentUser } = useSelector((state) => state.user);
+  const { currentUser, loading, error } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const [updateSuccess, setUpdateSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+  console.log(formData);
+
+  const handleSubmitUpdate = async (e) => {
+    e.preventDefault();
+    try {
+      dispatch(updateUserStart());
+      const res = await fetch(`/api/update/${currentUser._id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (data.success == false) {
+        dispatch(updateUserFailure(data.message));
+        return;
+      }
+      dispatch(updateUserSuccess(data));
+      setUpdateSuccess(true);
+    } catch (error) {
+      dispatch(updateUserFailure(error.message));
+    }
+  };
+
+  const handleDeleteAccount = async () => {
+    try {
+      dispatch(deleteUserStart());
+      const res = await fetch(`/api/deleteUser/${currentUser._id}`, {
+        method: "DELETE",
+      });
+      const data = await res.json()
+      if(data.success == false){
+        dispatch(deleteUserFailure(data.message))
+        return
+      }
+      dispatch(deleteUserSuccess(data))
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message))
+    }
+  };
 
   useEffect(() => {
     if (file) {
@@ -45,7 +103,6 @@ export default function Profiles() {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
           setFormData({ ...formData, avatar: downloadURL })
         );
-        console.log(formData)
       }
     );
   };
@@ -54,12 +111,12 @@ export default function Profiles() {
     <div className="profiles">
       <div className="profile-container">
         <h1>Your Profile</h1>
-        <form>
+        <form onSubmit={handleSubmitUpdate}>
           <input
             type="file"
             ref={fileRef}
             hidden
-            accept="images/*"
+            accept="image/*"
             onChange={(e) => setFile(e.target.files[0])}
           />
           <div className="profile-image">
@@ -69,16 +126,52 @@ export default function Profiles() {
               onClick={() => fileRef.current.click()}
             />
           </div>
+          <p className="fileperc">
+            {fileUploadError ? (
+              <span className="fileperc-error">Error uploading photo</span>
+            ) : filePerc > 0 && filePerc < 100 ? (
+              <span className="fileperc">{`Uploading ${filePerc}%`}</span>
+            ) : filePerc === 100 ? (
+              <span className="fileperc-success">Photo upload successful</span>
+            ) : (
+              ""
+            )}
+          </p>
           <div className="profile-fields">
-            <input type="text" placeholder="Your name" id="username" />
-            <input type="email" placeholder="Your Email" id="email" />
-            <input type="password" placeholder="Password" id="password" />
+            <input
+              type="text"
+              placeholder="Your name"
+              id="username"
+              defaultValue={currentUser.username}
+              onChange={handleChange}
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              id="email"
+              defaultValue={currentUser.email}
+              onChange={handleChange}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              id="password"
+              defaultValue={currentUser.password}
+              onChange={handleChange}
+            />
           </div>
-          <button>Update</button>
+          <button>{loading ? "Updating your profile" : "Update"}</button>
+          <p>
+            {error
+              ? error
+              : updateSuccess
+              ? "Profile updated successfully"
+              : ""}
+          </p>
         </form>
         <button className="create">Create Listing</button>
         <div className="delete-signout">
-          <p>Delete Account</p>
+          <p onClick={handleDeleteAccount}>Delete Account</p>
           <p>Sign out</p>
         </div>
         <div className="show-listing">
