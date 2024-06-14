@@ -8,6 +8,7 @@ import { errorHandler } from "./utils/error.js";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import { verifyToken } from "./utils/verifyUser.js";
+import Listing from "./models/listing.models.js";
 
 const app = express();
 
@@ -140,16 +141,45 @@ app.post("/api/update/:id", verifyToken, async (req, res, next) => {
 //...............................................................................
 //Delete user api
 //...............................................................................
-app.delete('/api/deleteUser/:id',verifyToken, async (req, res, next)=>{
-  if(req.user.id !== req.params.id) return next(errorHandler(403, "Unauthorized"))
+app.delete("/api/deleteUser/:id", verifyToken, async (req, res, next) => {
+  if (req.user.id !== req.params.id)
+    return next(errorHandler(403, "Unauthorized"));
   try {
-    await User.findByIdAndDelete(req.params.id)
-    res.clearCookie("access_token")
-    res.status(200).json("User has been deleted successfully")
+    await User.findByIdAndDelete(req.params.id);
+    res.clearCookie("access_token");
+    res.status(200).json("User has been deleted successfully");
   } catch (error) {
-    next(error)
+    next(error);
   }
-})
+});
+
+//..............................................................................
+//Signout user api
+//..............................................................................
+app.get("/api/signout", (req, res, next) => {
+  try {
+    res.clearCookie("access_token");
+    res.status(200).json("You signed out successfully");
+  } catch (error) {
+    next(error);
+  }
+});
+
+//...............................................................................
+//create listing api
+//...............................................................................
+app.post("/api/createListing/", verifyToken, async (req, res, next) => {
+  try {
+    const listing = await Listing.create(req.body);
+    return res.status(200).json(listing);
+  } catch (error) {
+    next(error);
+  }
+});
+
+
+
+
 
 //................................................................................
 // Error handling middleware

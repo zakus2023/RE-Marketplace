@@ -6,6 +6,8 @@ import profile_pic from "../assets/p1_product_i1.png";
 import nav_dropdown_icon from "../assets/nav_dropdown.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { signoutUserStart,signoutUserSuccess,signoutUserFailure } from "../redux/user/userSlice";
 
 export default function Navbar() {
   const menuRef = useRef();
@@ -15,6 +17,23 @@ export default function Navbar() {
   };
 
   const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch()
+
+  const handleSignout = async () => {
+    try {
+      dispatch(signoutUserStart());
+      const res = await fetch("/api/signout");
+      const data = await res.json();
+      if (data.success == false) {
+        dispatch(signoutUserFailure(data.message));
+        return;
+      }
+      dispatch(signoutUserSuccess(data));
+    } catch (error) {
+      dispatch(signoutUserFailure(error.message));
+    }
+  };
+
 
   return (
     <body>
@@ -48,7 +67,7 @@ export default function Navbar() {
                 <li>Contact Us</li>
               </Link>
               {currentUser ? (
-                <li>Logout</li>
+                <li onClick={handleSignout}>Logout</li>
               ) : (
                 <Link to="/signin">
                   <li className="signin-li">Login</li>

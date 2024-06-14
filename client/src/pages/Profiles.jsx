@@ -18,7 +18,11 @@ import {
   deleteUserStart,
   deleteUserSuccess,
   deleteUserFailure,
+  signoutUserStart,
+  signoutUserSuccess,
+  signoutUserFailure,
 } from "../redux/user/userSlice";
+import { Link } from "react-router-dom";
 
 export default function Profiles() {
   const fileRef = useRef();
@@ -67,14 +71,29 @@ export default function Profiles() {
       const res = await fetch(`/api/deleteUser/${currentUser._id}`, {
         method: "DELETE",
       });
-      const data = await res.json()
-      if(data.success == false){
-        dispatch(deleteUserFailure(data.message))
-        return
+      const data = await res.json();
+      if (data.success == false) {
+        dispatch(deleteUserFailure(data.message));
+        return;
       }
-      dispatch(deleteUserSuccess(data))
+      dispatch(deleteUserSuccess(data));
     } catch (error) {
-      dispatch(deleteUserFailure(error.message))
+      dispatch(deleteUserFailure(error.message));
+    }
+  };
+
+  const handleSignout = async () => {
+    try {
+      dispatch(signoutUserStart());
+      const res = await fetch("/api/signout");
+      const data = await res.json();
+      if (data.success == false) {
+        dispatch(signoutUserFailure(data.message));
+        return;
+      }
+      dispatch(signoutUserSuccess(data));
+    } catch (error) {
+      dispatch(signoutUserFailure(error.message));
     }
   };
 
@@ -169,10 +188,12 @@ export default function Profiles() {
               : ""}
           </p>
         </form>
-        <button className="create">Create Listing</button>
+        <Link to="/create-listing">
+          <button className="create">Create Listing</button>
+        </Link>
         <div className="delete-signout">
           <p onClick={handleDeleteAccount}>Delete Account</p>
-          <p>Sign out</p>
+          <p onClick={handleSignout}>Sign out</p>
         </div>
         <div className="show-listing">
           <p>Show Listings</p>

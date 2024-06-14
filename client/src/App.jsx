@@ -23,11 +23,11 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route element={<PrivateRoutes/>}>
+          <Route element={<PrivateRoutes />}>
             <Route path="/profiles" element={<Profiles />} />
+            <Route path="/create-listing" element={<CreateListing />} />
           </Route>
-          <Route path="/create-listing" element={<CreateListing />} />
-          <Route path="/listing" element={<Listing />} />
+          <Route path="/listing/:listingid" element={<Listing />} />
           <Route path="/updatelisting" element={<UpdateListing />} />
           <Route path="/searchlisting" element={<SearchListing />} />
           <Route path="/about" element={<About />} />

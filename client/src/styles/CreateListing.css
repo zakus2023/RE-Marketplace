@@ -4,6 +4,7 @@
     align-items: center;
     margin-top: 20px;
     gap: 10px;
+    
 }
 .main-listing h2{
     font-size: 30px;
@@ -14,17 +15,20 @@
     display: flex;
     gap: 40px;
     align-items: flex-start;
+       
 }
 
 .column-left{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    
 }
 .inputs{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    
 }
 
 .inputs input{
@@ -67,7 +71,12 @@
     margin-bottom: 10px;
     justify-content: space-between;
     gap: 8px;
+    flex-direction: column;
     
+}
+.insideuploads{
+    display: flex;
+    gap: 15px;
 }
 .images{
     border: none;
@@ -138,4 +147,25 @@
     outline: none;
     border: 1px solid #1113;
     border-radius: 5px;
+}
+
+.error-message{
+    color: red;
+    font-weight: 500;
+}
+
+.fileperc-loading{
+    color: black;
+    font-weight: 500;
+  }
+.fileperc-success{
+    color: green;
+    font-weight: 500;
+  }
+  
+
+.for-error{
+    color: red;
+    margin-top: 10px;
+    font-weight: 500;
 }
