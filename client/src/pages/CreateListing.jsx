@@ -157,6 +157,13 @@ export default function CreateListing() {
     }
   };
 
+  const handleDeleteImage = (index) => {
+    setFormData({
+      ...formData,
+      imageUrls: formData.imageUrls.filter((_, i) => i !== index),
+    });
+  };
+
   return (
     <main className="main-listing">
       <h2>Create Listing</h2>
@@ -314,20 +321,26 @@ export default function CreateListing() {
                   onChange={handleFormInputsChange}
                 />
                 <span>Regular Price</span>
+                <span>$</span>
+                {formData.type === "rent" && "/month"}
               </div>
-              <div>
-                <input
-                  type="number"
-                  name="discountPrice"
-                  id="discountPrice"
-                  min="0"
-                  max="5900000"
-                  required
-                  value={formData.discountPrice}
-                  onChange={handleFormInputsChange}
-                />
-                <span>Discount Price</span>
-              </div>
+              {formData.offer && (
+                <div>
+                  <input
+                    type="number"
+                    name="discountPrice"
+                    id="discountPrice"
+                    min="0"
+                    max="5900000"
+                    required
+                    value={formData.discountPrice}
+                    onChange={handleFormInputsChange}
+                  />
+                  <span>Discount Price</span>
+                  <span>$</span>
+                  {formData.type === "rent" && "/month"}
+                </div>
+              )}
             </div>
           </div>
           <div className="column-right">
@@ -360,7 +373,18 @@ export default function CreateListing() {
                 {imageUploadingError && imageUploadingError}
               </div>
             </div>
-            <button className="create">{loading? "Creating ...":"CREATE LISTING"}</button>
+            {formData.imageUrls.length > 0 &&
+              formData.imageUrls.map((url, index) => (
+                <div key={url} className="uploaded-images">
+                  <img src={url} alt="" />
+                  <div onClick={() => handleDeleteImage(index)}>
+                    <span>Remove</span>
+                  </div>
+                </div>
+              ))}
+            <button className="create">
+              {loading ? "Creating ..." : "CREATE LISTING"}
+            </button>
             <p className="for-error">{error && error}</p>
           </div>
         </div>

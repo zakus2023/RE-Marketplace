@@ -1,33 +1,33 @@
-.main-listing{
+.main-listing {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
     gap: 10px;
-}
-.main-listing h2{
+  }
+  .main-listing h2 {
     font-size: 30px;
     font-weight: 700;
     margin-bottom: 30px;
-}
-.row{
+  }
+  .row {
     display: flex;
     gap: 40px;
     align-items: flex-start;
-}
-
-.column-left{
+  }
+  
+  .column-left {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-.inputs{
+  }
+  .inputs {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.inputs input{
+  }
+  
+  .inputs input {
     height: 65px;
     width: 100%;
     padding-left: 20px;
@@ -35,63 +35,65 @@
     outline: none;
     color: #5c5c5c;
     font-size: 18px;
-}
-.inputs textarea{
+  }
+  .inputs textarea {
     padding-left: 20px;
     padding-top: 10px;
     border: 1px solid #c9c9c9;
     outline: none;
     color: #5c5c5c;
     font-size: 18px;
-}
-.checks{
+  }
+  .checks {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-}
-
-.checks div{
+  }
+  
+  .checks div {
     display: flex;
     gap: 3px;
-
-}
-
-.column-right{
+  }
+  
+  .column-right {
     display: flex;
     flex-direction: column;
-}
-
-.uploads{
+  }
+  
+  .uploads {
     display: flex;
     margin-top: 10px;
     margin-bottom: 10px;
     justify-content: space-between;
     gap: 8px;
-    
-}
-.images{
+    flex-direction: column;
+  }
+  .insideuploads {
+    display: flex;
+    gap: 15px;
+  }
+  .images {
     border: none;
     padding: 10px;
     background: #9a9797;
-    border-radius: 5px;    
-}
-.uploads input{
+    border-radius: 5px;
+  }
+  .uploads input {
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
-}
-
-.uploads button{
+  }
+  
+  .uploads button {
     padding: 0 4px;
     border: 3px solid green;
     border-radius: 5px;
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
-
-}
-
-.create{
+  }
+  
+  .create {
     padding: 15px;
     border: none;
     background: green;
@@ -100,42 +102,83 @@
     color: white;
     font-weight: 500;
     cursor: pointer;
-}
-
-.numbers{
+  }
+  
+  .numbers {
     margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-}
-.numbers div{
+  }
+  .numbers div {
     display: flex;
     align-items: center;
     gap: 5px;
-}
-.numbers input{
+  }
+  .numbers input {
     padding: 10px;
     outline: none;
     border: 1px solid #1113;
     border-radius: 5px;
-}
-
-.prices{
+  }
+  
+  .prices {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.prices div{
+  }
+  
+  .prices div {
     display: flex;
     gap: 8px;
     align-items: center;
-}
-
-.prices input{
+  }
+  
+  .prices input {
     padding: 10px;
     outline: none;
     border: 1px solid #1113;
     border-radius: 5px;
-}
+  }
+  
+  .error-message {
+    color: red;
+    font-weight: 500;
+  }
+  
+  .fileperc-loading {
+    color: black;
+    font-weight: 500;
+  }
+  .fileperc-success {
+    color: green;
+    font-weight: 500;
+  }
+  
+  .for-error {
+    color: red;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+  
+  .uploaded-images {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #c9c9c9;
+    padding: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  
+  .uploaded-images img {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .uploaded-images span{
+      color: red;
+      font-weight: 500;
+      cursor: pointer;
+  }
+  

@@ -33,6 +33,8 @@ export default function Profiles() {
   const { currentUser, loading, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [updateSuccess, setUpdateSuccess] = useState(false);
+  const [userListings, setUserListings] = useState({});
+  const [showListingsError, setShowListingsError] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -126,6 +128,39 @@ export default function Profiles() {
     );
   };
 
+  const handleShowListings = async () => {
+    try {
+      const res = await fetch(`/api/userlisting/${currentUser._id}`);
+      const data = await res.json();
+      if (data.success == false) {
+        setShowListingsError(data.message);
+        return;
+      }
+      setUserListings(data);
+      console.log(data);
+    } catch (error) {
+      setShowListingsError(error.message);
+    }
+  };
+
+  const handleDeleteListing = async (listingid) => {
+    try {
+      const res = await fetch(`/api/deletelisting/${listingid}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      if (data.success == false) {
+        console.log(data.message);
+        return;
+      }
+      setUserListings((prev) =>
+        prev.filter((listing) => listing._id !== listingid)
+      );
+    } catch (error) {
+      console.log(error.meaasge);
+    }
+  };
+
   return (
     <div className="profiles">
       <div className="profile-container">
@@ -196,8 +231,33 @@ export default function Profiles() {
           <p onClick={handleSignout}>Sign out</p>
         </div>
         <div className="show-listing">
-          <p>Show Listings</p>
+          <p onClick={handleShowListings}>Click to see your Listings</p>
         </div>
+        {userListings && userListings.length > 0 && (
+          <div className="showlistings">
+            {userListings.map((listing) => (
+              <div key={listing._id} className="innershowlistings">
+                <Link to={`/listing/${listing._id}`}>
+                  <img src={listing.imageUrls[0]} alt="" />
+                </Link>
+                <Link to={`/listing/${listing._id}`} className="name">
+                  <span>{listing.name}</span>
+                </Link>
+                <div className="showlistingbtns">
+                  <span
+                    className="delete"
+                    onClick={() => handleDeleteListing(listing._id)}
+                  >
+                    Delete
+                  </span>
+                  <Link to={`/updatelisting/${listing._id}`} className="edit">
+                    <span>Edit</span>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

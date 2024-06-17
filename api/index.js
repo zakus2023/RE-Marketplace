@@ -177,9 +177,90 @@ app.post("/api/createListing/", verifyToken, async (req, res, next) => {
   }
 });
 
+//................................................................................
+//Show user listing api
+//................................................................................
+app.get("/api/userlisting/:id", verifyToken, async (req, res, next) => {
+  if (req.user.id === req.params.id) {
+    try {
+      const listing = await Listing.find({ userRef: req.params.id });
+      res.status(200).json(listing);
+    } catch (error) {
+      next(error);
+    }
+  }
+});
 
+//...............................................................................
+//Delete listing api
+//...............................................................................
+app.delete("/api/deletelisting/:id", verifyToken, async (req, res, next) => {
+  const listing = await Listing.findById(req.params.id);
+  if (!listing) {
+    return next(errorHandler(402, "Listing not found"));
+  }
+  if (req.user.id !== listing.userRef) {
+    return next(
+      errorHandler(403, "You are unathorized to delete this listing")
+    );
+  }
+  try {
+    await Listing.findByIdAndDelete(req.params.id);
+    res.status(200).json("Listing deleted successfully");
+  } catch (error) {
+    next(error);
+  }
+});
 
+//...............................................................................
+//Get particular listing api
+//...............................................................................
+app.get("/api/get/:id", async (req, res, next) => {
+  try {
+    const listing = await Listing.findById(req.params.id);
+    if (!listing) {
+      return next(errorHandler(403, "Listing not found"));
+    }
+    res.status(200).json(listing);
+  } catch (error) {
+    next(error);
+  }
+});
 
+//................................................................................
+//Update listing api
+//................................................................................
+app.post("/api/update-listing/:id", verifyToken, async (req, res, next) => {
+  const listing = await Listing.findById(req.params.id);
+  if (!listing) return next(errorHandler(401, "User not found"));
+  if (req.user.id !== listing.userRef)
+    return next(errorHandler(402, "You can only update your listing"));
+  try {
+    const updatedListing = await Listing.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    res.status(200).json(updatedListing);
+  } catch (error) {
+    next(error);
+  }
+});
+
+//...............................................................................
+//fetch a particular user
+//...............................................................................
+
+app.get("/api/user/:id", verifyToken, async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) return next(errorHandler(402, "User not found"));
+    const { password: pass, ...rest } = user._doc;
+    res.status(200).json(rest);
+  } catch (error) {
+    next(error);
+  }
+});
 
 //................................................................................
 // Error handling middleware
