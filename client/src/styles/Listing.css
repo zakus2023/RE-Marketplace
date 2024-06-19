@@ -64,7 +64,7 @@
   border-radius: 5px;
   cursor: pointer;
 }
-.listing-info{
+.listing-info {
   width: 800px;
   display: flex;
   flex-direction: column;
@@ -78,7 +78,7 @@
 
 .listing-info .addr {
   margin-top: 10px;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 500;
   margin-bottom: 10px;
 }
@@ -87,7 +87,7 @@
   border: none;
   background: green;
   width: fit-content;
-  padding: 10px 15px;
+  padding: 7px 15px;
   border-radius: 5px;
   color: white;
   font-size: 18px;
@@ -95,21 +95,35 @@
   margin-bottom: 10px;
 }
 
-.description p {
-  font-size: 15px;
-  font-weight: 500;
-  margin-bottom: 10px;
+.description {
+  
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
+.description-title{
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.description-text{
+  font-size: 18px;
+  color: #484646;
+}
 .facilities {
   display: flex;
-  gap: 10px;
+  gap: 15px;
+  align-items: center;
 }
 .facilities div {
+  font-weight: 500;
+}
+.facilities-title{
+  margin-bottom: 5px;
+  font-size: 20px;
   font-weight: 600;
 }
-
-
 
 button {
   margin-top: 15px;
@@ -125,8 +139,56 @@ button {
   cursor: pointer;
 }
 
+.discount span{
+  color: green;
+}
+
 .address {
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 5px;
+  font-size: 27px;
+  font-weight: 500;
 }
+.icons {
+  color: green;
+  width: 20px;
+}
+.inner-faci {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.price {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.faci-text{
+color: #484646;
+font-weight: 400;
+}
+.contact-text{
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid green;
+  background: green;
+  color: white;
+  width: fit-content;
+  margin: auto;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.contact-text-text{
+  font-size: 18px;
+  color: red;
+  font-weight: 500;
+}
+
+
+
+
+

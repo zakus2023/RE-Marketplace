@@ -9,6 +9,7 @@ import {
   FaBath,
   FaMapMarkedAlt,
   FaChair,
+  FaMapMarked,
 } from "react-icons/fa";
 import Contact from "../components/Contact";
 
@@ -117,57 +118,84 @@ export default function Listing() {
                       </span>
                     )}
                   </div>
+                  <div className="type">
+                    <p>
+                      {fetchedData.type === "rent" ? "For Rent" : "For Sale"}
+                    </p>
+                  </div>
                 </div>
 
                 <div className="address">
-                  <p className="addr">{fetchedData.address}</p>
-                  <p>{fetchedData.city}</p>
-                  <p>{fetchedData.province}</p>
-                  <p>{fetchedData.postalCode}</p>
-                </div>
-                <div className="type">
-                  <p>{fetchedData.type === "rent" ? "For Rent" : "For Sale"}</p>
-                </div>
-                <div className="description">
-                  <p>{fetchedData.description}</p>
+                  <FaMapMarkedAlt className="icons" />
+                  <p className="addr">
+                    {fetchedData.address} {fetchedData.city}{" "}
+                    {fetchedData.province} {fetchedData.postalCode}
+                  </p>
                 </div>
 
+                <div className="description">
+                  <p className="description-title">Description</p>
+                  <p className="description-text">{fetchedData.description}</p>
+                </div>
+                <p className="facilities-title">Facilities</p>
                 <div className="facilities">
                   <div className="faci">
-                    <FaBed />
-                    <span>{fetchedData.bedrooms}</span>
-                    <span>Bedrooms</span>
+                    <div className="inner-faci">
+                      <span>
+                        <FaBed className="icons" />
+                      </span>
+                      <span className="faci-text-num">
+                        {fetchedData.bedrooms}
+                      </span>
+                      <span className="faci-text">Bedrooms</span>
+                    </div>
                   </div>
                   <div className="faci">
-                    <FaBath />
-                    <span>{fetchedData.bathrooms}</span>
-                    <span>Bathrooms</span>
+                    <div className="inner-faci">
+                      <span>
+                        <FaBath className="icons" />
+                      </span>
+                      <span className="faci-text-num">
+                        {fetchedData.bathrooms}
+                      </span>
+                      <span className="faci-text">Bathrooms</span>
+                    </div>
                   </div>
                   <div className="faci">
                     {fetchedData.parking && (
-                      <p>
-                        <FaParking />
-                        <span>Parking</span>
-                      </p>
+                      <div className="inner-faci">
+                        <span>
+                          <FaParking className="icons" />
+                        </span>
+                        <span className="faci-text">Parking</span>
+                      </div>
                     )}
                   </div>
                   <div className="faci">
                     {fetchedData.furnished && (
-                      <p>
-                        <FaChair />
-                        <span>Furnished</span>
-                      </p>
+                      <div className="inner-faci">
+                        <span>
+                          <FaChair className="icons" />
+                        </span>
+                        <span className="faci-text">Furnished</span>
+                      </div>
                     )}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="contact-text" onClick={() => setContact(true)}>
+            <div onClick={() => setContact(true)}>
               {currentUser &&
                 fetchedData.userRef !== currentUser._id &&
-                !contact && <p>Contact Landlord</p>}
+                !contact && (
+                  <p className="contact-text">Click Here to Contact Landlord</p>
+                )}
             </div>
-            {!currentUser && <p>You must login to contact the Landlord</p>}
+            {!currentUser && (
+              <p className="contact-text-text">
+                You must login to contact the Landlord
+              </p>
+            )}
             <div className="contact-form">
               {contact && <Contact listing={fetchedData} />}
             </div>

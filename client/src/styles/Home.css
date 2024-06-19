@@ -1,8 +1,24 @@
-.item-on-home {
+.main-home{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.items{
+  display: flex;
+  flex-direction: column;
+}
+
+.item-on-home{
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
+}
+.make-row{
+  display: flex;
+  gap: 15px;
 }
 .testimonial-inner {
   display: flex;
@@ -13,7 +29,7 @@
 .item-on-home h2 {
   position: relative;
   margin-bottom: -20px;
-  margin-top: -30px;
+  margin-top: -10px;
 }
 
 .item-on-home h2::after {
@@ -40,8 +56,4 @@
   left: 0;
 }
 
-@media (max-width: 800px) {
-  .item-inner-home {
-    margin-bottom: 15px;
-  }
-}
+

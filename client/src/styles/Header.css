@@ -1,10 +1,11 @@
 .header {
-  min-height: 100vh;
+  min-height: 90vh;
   background: linear-gradient(180deg, #d3bad3, #e1ffea22 35%);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 9%;
+  width: 100%;
 }
 
 .header-left {

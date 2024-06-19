@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Contact.css";
+import "../styles/Contact.css";
 import { Link } from "react-router-dom";
 
 export default function Contact({ listing }) {
@@ -30,7 +30,7 @@ export default function Contact({ listing }) {
       <p>
         {listingOwner && (
           <div className="contact">
-            <p>
+            <p className="owners-name">
               Contact <span>{listingOwner.username} </span>for{" "}
               <span>{listing.name}</span>
             </p>
@@ -40,10 +40,11 @@ export default function Contact({ listing }) {
               rows="5"
               value={message}
               onChange={handleChange}
+              className="message-textarea"
             ></textarea>
             <Link
               to={`mailto:${listingOwner.email}?subject=Regarding ${listing.name}&body=${message}`}
-            >
+            className="send-message-link">
               Send message
             </Link>
           </div>

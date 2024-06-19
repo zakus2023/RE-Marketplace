@@ -1,0 +1,39 @@
+.contact{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 15px;
+    align-items: center;
+}
+
+.contact .owners-name{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.contact .owners-name span{
+    font-weight: 600;
+}
+
+.message-textarea{
+    width: 800px;
+    border-radius: 10px;
+    background: #ebe9e9;
+    font-size: 16px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    color: rgb(114, 112, 112);
+}
+
+.send-message-link{
+    text-decoration: none;
+    border: 1px solid green;
+    background: green;
+    padding: 5px;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+}
