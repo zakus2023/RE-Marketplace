@@ -1,22 +1,30 @@
-.main-home{
+.main-home {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 
-.items{
+.see-more-link {
+  margin-top: 10px;
+  text-decoration: none;
+  color: rgb(139, 136, 136);
+  font-size: 18px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.items {
   display: flex;
   flex-direction: column;
 }
 
-.item-on-home{
+.item-on-home {
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-bottom: 60px;
 }
-.make-row{
+.make-row {
   display: flex;
   gap: 15px;
 }
@@ -55,5 +63,3 @@
   bottom: -3px;
   left: 0;
 }
-
-

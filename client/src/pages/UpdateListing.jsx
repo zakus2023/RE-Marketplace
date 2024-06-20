@@ -181,12 +181,12 @@ export default function UpdateListing() {
   };
 
   return (
-    <main className="main-listing">
+    <main className="main-listings">
       <h2>Edit Listing</h2>
       <form onSubmit={handleSubmitForm}>
-        <div className="row">
-          <div className="column-left">
-            <div className="inputs">
+        <div className="rows">
+          <div className="columns-left">
+            <div className="inputss">
               <input
                 type="text"
                 name="title"
@@ -360,10 +360,10 @@ export default function UpdateListing() {
             </div>
           </div>
           <div className="column-right">
-            <p>
+            <p className="image-para">
               <span>Images</span> The first image will be the cover (max 6)
             </p>
-            <div className="uploads">
+            <div className="uploadss">
               <div className="insideuploads">
                 <div className="images">
                   <input
@@ -398,7 +398,7 @@ export default function UpdateListing() {
                   </div>
                 </div>
               ))}
-            <button className="create">
+            <button className="creates">
               {loading ? "Updating ..." : "EDIT LISTING"}
             </button>
             <p className="for-error">{error && error}</p>

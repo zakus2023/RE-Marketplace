@@ -11,7 +11,7 @@
 }
 
 .inner-listing {
-  width: 60%;
+  width: 80%;
   background: white;
   align-self: center;
   margin-top: 40px;
@@ -40,14 +40,18 @@
 .mainimage {
   width: 800px;
   height: 380px;
+  transition: transform 0.5s;
+}
+.mainimage:hover {
+  transform: translateY(-10px);
 }
 
 .mainimage img {
-  border: 1px solid #c9c9c9;
   padding: 6px;
   border-radius: 5px;
   width: 100%;
   height: 100%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .smallimages {
@@ -60,10 +64,17 @@
   height: 100px;
   border: 1px solid #c9c9c9;
   padding: 5px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   margin-right: 3px;
   border-radius: 5px;
   cursor: pointer;
+  transition: transform 0.5s;
 }
+
+.smallimages img:hover {
+  transform: translateY(-10px);
+}
+
 .listing-info {
   width: 800px;
   display: flex;
@@ -96,18 +107,17 @@
 }
 
 .description {
-  
   margin-top: 10px;
   margin-bottom: 20px;
 }
 
-.description-title{
+.description-title {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 5px;
 }
 
-.description-text{
+.description-text {
   font-size: 18px;
   color: #484646;
 }
@@ -119,7 +129,7 @@
 .facilities div {
   font-weight: 500;
 }
-.facilities-title{
+.facilities-title {
   margin-bottom: 5px;
   font-size: 20px;
   font-weight: 600;
@@ -139,7 +149,7 @@ button {
   cursor: pointer;
 }
 
-.discount span{
+.discount span {
   color: green;
 }
 
@@ -166,11 +176,11 @@ button {
   align-items: center;
 }
 
-.faci-text{
-color: #484646;
-font-weight: 400;
+.faci-text {
+  color: #484646;
+  font-weight: 400;
 }
-.contact-text{
+.contact-text {
   font-size: 18px;
   font-weight: 500;
   border: 1px solid green;
@@ -182,13 +192,8 @@ font-weight: 400;
   cursor: pointer;
   border-radius: 5px;
 }
-.contact-text-text{
+.contact-text-text {
   font-size: 18px;
   color: red;
   font-weight: 500;
 }
-
-
-
-
-

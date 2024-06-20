@@ -3,6 +3,7 @@ import "../styles/Home.css";
 import Header from "../components/Header";
 import Item from "../components/Item";
 import Testimonials from "../components/Testimonials";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [offer, setOffer] = useState([]);
@@ -10,8 +11,8 @@ export default function Home() {
   const [sale, setSale] = useState([]);
 
   console.log(offer);
-  console.log(rent)
-  console.log(sale)
+  console.log(rent);
+  console.log(sale);
 
   useEffect(() => {
     const fetchListingOffer = async () => {
@@ -56,31 +57,52 @@ export default function Home() {
           <div className="item-on-home">
             <h2>Latest Offers</h2>
             <div className="make-row">
-            {offer.map((listing) => (
-              <Item className="item-inner-home" listing={listing} key={listing._id} />
-            ))}
+              {offer.map((listing) => (
+                <Item
+                  className="item-inner-home"
+                  listing={listing}
+                  key={listing._id}
+                />
+              ))}
             </div>
+            <Link to={"/searchListing?offer=true"} className="see-more-link">
+              <p>See more offers</p>
+            </Link>
           </div>
         )}
 
         {rent && rent.length > 0 && (
           <div className="item-on-home">
             <h2>Latest Listings for Rent</h2>
-           <div className="make-row">
-           {rent.map((listing) => (
-              <Item className="item-inner-home" listing={listing} key={listing._id} />
-            ))}
-           </div>
+            <div className="make-row">
+              {rent.map((listing) => (
+                <Item
+                  className="item-inner-home"
+                  listing={listing}
+                  key={listing._id}
+                />
+              ))}
+            </div>
+            <Link to={"/searchListing?type=rent"} className="see-more-link">
+              <p>See more listings for rent</p>
+            </Link>
           </div>
         )}
         {sale && sale.length > 0 && (
           <div className="item-on-home">
             <h2>Latest Listings for Sale</h2>
-           <div className="make-row">
-           {sale.map((listing) => (
-              <Item className="item-inner-home" listing={listing} key={listing._id} />
-            ))}
-           </div>
+            <div className="make-row">
+              {sale.map((listing) => (
+                <Item
+                  className="item-inner-home"
+                  listing={listing}
+                  key={listing._id}
+                />
+              ))}
+            </div>
+            <Link to={"/searchListing?type=sale"} className="see-more-link">
+              <p>See more listings for sale</p>
+            </Link>
           </div>
         )}
       </div>

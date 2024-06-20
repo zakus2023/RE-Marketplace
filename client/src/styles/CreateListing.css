@@ -1,33 +1,43 @@
-.main-listing {
+.main-listings {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
   gap: 10px;
+  width: 100%;
 }
-.main-listing h2 {
+.main-listings form{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+.main-listings h2 {
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 30px;
 }
-.row {
+.rows {
   display: flex;
-  gap: 40px;
+  gap: 20px;
   align-items: flex-start;
+  background: white;
+  padding: 30px;
+  border-radius: 5px;
+  
 }
 
-.column-left {
+.columns-left {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.inputs {
+.inputss {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.inputs input {
+.inputss input {
   height: 65px;
   width: 100%;
   padding-left: 20px;
@@ -36,7 +46,7 @@
   color: #5c5c5c;
   font-size: 18px;
 }
-.inputs textarea {
+.inputss textarea {
   padding-left: 20px;
   padding-top: 10px;
   border: 1px solid #c9c9c9;
@@ -71,12 +81,14 @@
 .insideuploads {
   display: flex;
   gap: 15px;
+  
 }
 .images {
   border: none;
   padding: 10px;
   background: #9a9797;
   border-radius: 5px;
+  margin-bottom: 5px;
 }
 .uploads input {
   cursor: pointer;
@@ -84,16 +96,18 @@
   font-weight: 500;
 }
 
-.uploads button {
+.uploadss button {
   padding: 0 4px;
   border: 3px solid green;
   border-radius: 5px;
   cursor: pointer;
   font-size: 18px;
   font-weight: 500;
+  width: fit-content;
+  
 }
 
-.create {
+.creates {
   padding: 15px;
   border: none;
   background: green;
@@ -102,6 +116,7 @@
   color: white;
   font-weight: 500;
   cursor: pointer;
+  width: 100%;
 }
 
 .numbers {
@@ -145,15 +160,18 @@
 .error-message {
   color: red;
   font-weight: 500;
+  margin-bottom: 5px;
 }
 
 .fileperc-loading {
   color: black;
   font-weight: 500;
+  margin-bottom: 5px;
 }
 .fileperc-success {
   color: green;
   font-weight: 500;
+  margin-bottom: 5px;
 }
 
 .for-error {
@@ -180,4 +198,8 @@
     color: red;
     font-weight: 500;
     cursor: pointer;
+}
+
+.image-para{
+  margin-bottom: 10px;
 }
