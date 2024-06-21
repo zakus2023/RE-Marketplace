@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/Item.css";
 import houses from "../assets/houses.png";
 import { Link } from "react-router-dom";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Item({ listing }) {
   console.log(listing);
@@ -37,7 +38,10 @@ export default function Item({ listing }) {
                 </div>
               )}
             </div>
+            <div className="city">
+            <FaMapMarkerAlt className="city-fa"/>
             <p className="city">{listing.city}</p>
+            </div>
           </div>
         </Link>
       </div>

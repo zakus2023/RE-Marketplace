@@ -66,6 +66,15 @@
   font-weight: 500;
 }
 
+.city{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.city .city-fa{
+  width: 9px;
+  color: green;
+}
 @media (max-width: 800px) {
   .items {
     padding-top: 20px;

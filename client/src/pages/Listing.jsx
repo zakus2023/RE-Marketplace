@@ -7,7 +7,7 @@ import {
   FaBed,
   FaParking,
   FaBath,
-  FaMapMarkedAlt,
+  FaMapMarkerAlt,
   FaChair,
   FaMapMarked,
 } from "react-icons/fa";
@@ -126,7 +126,7 @@ export default function Listing() {
                 </div>
 
                 <div className="address">
-                  <FaMapMarkedAlt className="icons" />
+                  <FaMapMarkerAlt className="icons" />
                   <p className="addr">
                     {fetchedData.address} {fetchedData.city}{" "}
                     {fetchedData.province} {fetchedData.postalCode}
