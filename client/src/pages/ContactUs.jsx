@@ -4,15 +4,22 @@ import contact_arrow from "../assets/contact_arror_icon.png";
 import contact_image_icon from "../assets/contact_right_img.png";
 
 export default function ContactUs() {
+
+  const handleSubmitMessage = ()=>{
+    alert("Your message has been submitted successfuly!")
+  }
+
+
   return (
     <div className="contact-us">
       
-        <form action="https://api.web3forms.com/submit" method="POST" className="contact-left">
+        <form action="https://api.web3forms.com/submit" method="POST" className="contact-left" onSubmit={handleSubmitMessage}>
           <div className="title">
             <h2>Get in touch</h2>
             <hr />
           </div>
-          <input type="hidden" name="access_key" value="6a9902ee-3f0d-4256-8c88-31e0359914c6"></input>
+          <input type="hidden" name="access_key" value="6a9902ee-3f0d-4256-8c88-31e0359914c6" ></input>
+          <input type="hidden" name="redirect" value="http://localhost:5173/contactus" />
           <input
             type="text"
             placeholder="Your name"
